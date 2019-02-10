@@ -1,0 +1,11 @@
+.todo-wrapper {
+  width: 60vmin;
+  max-width: 120vmin;
+  height: 100vmin;
+  margin: var(--margin) 0;
+  background: whitesmoke;
+  box-shadow: var(--box-shadow);
+
+  display: flex;
+  flex-flow: column nowrap;
+}
