@@ -6,17 +6,15 @@ import Boards from '../components/Boards.jsx';
 import Test from '../components/Test.jsx';
 
 const Main = () => (
-
-        <BrowserRouter basename='/'>
-            <LastLocationProvider>
-                <div>
-                    <Switch>
-                        <Route path="/" exact component={Boards}/>
-                        <Route path="/test" component={Test}/>
-                    </Switch>
-                </div>
-            </LastLocationProvider>
-        </BrowserRouter>
-    )
+    <BrowserRouter basename='/'>
+        <LastLocationProvider>
+            <div>
+                <Switch>
+                    <Route path="/" exact component={Boards}/>
+                    <Route path="/test" component={Test}/>
+                </Switch>
+            </div>
+        </LastLocationProvider>
+    </BrowserRouter>)
 
     export default Main;

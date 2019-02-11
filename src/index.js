@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import Main from './router';
 import BoardsObj from './reducers'
 
+
 let store = createStore(BoardsObj)
 
 render(

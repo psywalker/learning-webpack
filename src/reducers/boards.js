@@ -1,22 +1,20 @@
-const todos = (state = [], action) => {
+const boards = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case 'ADD_BOARD':
       return [
         ...state,
         {
           id: action.id,
-          text: action.text,
-          completed: false
+          text: action.name,
         }
       ];
-    case 'TOGGLE_TODO':
-      return state.map(
-        todo =>
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+    case 'REMOVE_BOARD':
+      return state.boards.map(
+        board => board.id === action.id ? { ...board } : board
       );
     default:
       return state;
   }
 };
 
-export default todos;
+export default boards;
