@@ -9,7 +9,7 @@ const initialStore = {
             name: 'board2',
         },
     ],
-    list: [
+    lists: [
         {
             id: 1,
             name: 'list1',
@@ -19,7 +19,7 @@ const initialStore = {
             name: 'list2',
         },
     ],
-    task: [
+    tasks: [
         {
             id: 1,
             name: 'task1',

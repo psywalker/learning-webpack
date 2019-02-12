@@ -5,11 +5,11 @@ const boards = (state = [], action) => {
         ...state,
         {
           id: action.id,
-          text: action.name,
+          name: action.name,
         }
       ];
     case 'REMOVE_BOARD':
-      return state.boards.map(
+      return state.filter(
         board => board.id === action.id ? { ...board } : board
       );
     default:

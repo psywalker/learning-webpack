@@ -5,11 +5,11 @@ const lists = (state = [], action) => {
         ...state,
         {
           id: action.id,
-          text: action.name,
+          name: action.name,
         }
       ];
     case 'REMOVE_LIST':
-      return state.lists.map(
+      return state.filter(
         list => list.id === action.id ? { ...list } : list
       );
     default:

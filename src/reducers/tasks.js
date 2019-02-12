@@ -5,11 +5,11 @@ const tasks = (state = [], action) => {
           ...state,
           {
             id: action.id,
-            text: action.name,
+            name: action.name,
           }
         ];
       case 'REMOVE_TASK':
-        return state.tasks.map(
+        return state.filter(
             task => task.id === action.id ? { ...task } : task
         );
       default:
