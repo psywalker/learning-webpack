@@ -1,19 +1,14 @@
 import { connect } from 'react-redux'
 import Boards from '../components/Boards.jsx'
 
-const mapStateToProps = (state, ownProps) => ({
-  /*active: {
-      state,
-      ownProps,
-  }*/
-  active: 'text'
-})
+const mapStateToProps = (state, ownProps) => 
+{
+  return { boards: state.boards }
+}
+
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onClick: () => {
-        console.log('1:::', dispatch)
-        console.log('1:::', ownProps)
-    }
+    onClick: (id, name) => dispatch({ type: 'ADD_BOARD', id, name })
 })
 
 export default connect(
