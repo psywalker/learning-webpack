@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Boards from '../components/Boards.jsx'
+import Boards from '../components/Boards/Boards'
 
 const mapStateToProps = (state, ownProps) => 
 {

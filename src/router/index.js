@@ -1,9 +1,7 @@
 import React from 'react';
 import { LastLocationProvider } from 'react-router-last-location';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux'
-import Boards from '../components/Boards.jsx';
-import Test from '../components/Test.jsx';
+import Task from '../components/Task/Task';
 import FilterBoards from '../containers/FilterBoards';
 
 const Main = () => (
@@ -12,7 +10,7 @@ const Main = () => (
             <div>
                 <Switch>
                     <Route path="/" exact component={FilterBoards}/>
-                    <Route path="/test" component={Test}/>
+                    <Route path="/task" component={Task}/>
                 </Switch>
             </div>
         </LastLocationProvider>
