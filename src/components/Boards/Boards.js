@@ -1,13 +1,12 @@
 import React from 'react';
+import BoardsList from '../BoardsList/BoardsList'
 
-const Boards = ({ boards, onClick }) => (
-  <ul>
-    {boards.map((board, i) =>
-     <li key={i} onClick={() => onClick(boards.length + 1, 'board' + (boards.length+1))}>
-       ID: {board.id} - Name: {board.name}
-     </li>
+const Boards = ({ boards }) => (
+  <div className="boards-wrapper">
+    {boards.map(board =>
+      <BoardsList name={board.name} key={board.id} />
     )}
-  </ul>
+</div>
 )
 
 export default Boards;
