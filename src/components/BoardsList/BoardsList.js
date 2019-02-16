@@ -1,13 +1,10 @@
 import React from 'react';
+import '../styles/app-styles.scss';
 
-const BoardsList = ({ boards, onClick }) => (
-  <ul>
-    {boards.map((board, i) =>
-     <li key={i} onClick={() => onClick(boards.length + 1, 'board' + (boards.length+1))}>
-       ID: {board.id} - Name: {board.name}
-     </li>
-    )}
-  </ul>
+const BoardsList = ({ name }) => (
+    <div className="board">
+        <h2>{name}</h2>
+    </div>
 )
 
 export default BoardsList;
