@@ -7,7 +7,7 @@ import Test from '../components/Test.jsx';
 import FilterBoards from '../containers/FilterBoards';
 
 const Main = () => (
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename={process.env.PUBLIC_URL || '/'}>
         <LastLocationProvider>
             <div>
                 <Switch>
