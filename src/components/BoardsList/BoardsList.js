@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/app-styles.scss';
 
 const BoardsList = ({ name }) => (
     <div className="board">
