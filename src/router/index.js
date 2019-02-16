@@ -6,7 +6,7 @@ import BoardsListContainer from '../containers/BoardsListContainer';
 import '../styles/app-styles.scss';
 
 const Main = () => (
-    <BrowserRouter basename={process.env.PUBLIC_URL || '/'}>
+    <BrowserRouter basename='/'>
         <LastLocationProvider>
             <div>
                 <Switch>
