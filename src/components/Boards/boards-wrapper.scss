@@ -1,0 +1,17 @@
+.boards-wrapper {
+    height: 90vh;
+    margin-top: 5vh;
+
+}
+
+.boards {
+    display: flex;
+    &__item {
+        margin: 0 4px;
+        background-color: #dfe3e6;
+        border-radius: 3px;
+        width: 272px;
+        height: 100%;
+        overflow: auto;
+    }
+}
