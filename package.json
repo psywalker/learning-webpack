@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "build-gh": "cross-env NODE_ENV=production npm run build"
+    "build-gh": "cross-env NODE_ENV=production npm run build",
+    "build:deploy": "cross-env NODE_ENV=production webpack --mode production"
+
   },
   "repository": {
     "type": "git",

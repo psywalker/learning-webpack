@@ -1,7 +1,4 @@
 body {
-<<<<<<< HEAD
-  background: #0079bf; }
-=======
   background: #0079bf;
   margin: 0; }
 .board__title {
@@ -103,4 +100,3 @@ body {
     cursor: pointer; }
     .board-adding-form__btn_close:hover {
       color: #516b7a; }
->>>>>>> master
