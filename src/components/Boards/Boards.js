@@ -9,10 +9,9 @@ class Boards extends Component {
     this.state = {
       addListForm: false,
     }
-    this.openFormAddList = this.openFormAddList.bind(this);
   } 
 
-  openFormAddList(e) {
+  openFormAddList = () => {
     this.setState({
       addListForm: !this.state.addListForm,
     }); 
