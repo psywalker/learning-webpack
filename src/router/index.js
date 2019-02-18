@@ -5,7 +5,6 @@ import Task from '../components/Task/Task';
 import BoardsListContainer from '../containers/BoardsListContainer';
 import '../styles/app-styles.scss';
 
-
 const Main = () => (
     <BrowserRouter basename='/'>
         <LastLocationProvider>
