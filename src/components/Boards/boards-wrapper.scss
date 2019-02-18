@@ -7,13 +7,16 @@
 
 .boards {
     display: flex;
+    align-items: flex-start;
+
     &__item {
         margin: 0 4px;
         background-color: #dfe3e6;
         border-radius: 3px;
-        width: 272px;
-        height: 100%;
-        overflow: auto;
+        width: 272px;  
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 8px;
     }
 }
 

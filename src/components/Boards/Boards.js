@@ -26,7 +26,7 @@ class Boards extends Component {
 
         <div className="boards"> 
           {lists.map(list =>
-            <BoardsListContainer name={list.name} listsIds={list.tasksId} key={list.id} />
+            <BoardsListContainer name={list.name} listsIds={list.tasksId} key={list.id} id={list.id} />
           )}
         </div>
     
