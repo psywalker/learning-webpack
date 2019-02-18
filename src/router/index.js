@@ -2,7 +2,7 @@ import React from 'react';
 import { LastLocationProvider } from 'react-router-last-location';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Task from '../components/Task/Task';
-import BoardsListContainer from '../containers/BoardsListContainer';
+import BoardsContainer from '../containers/BoardsContainer';
 import '../styles/app-styles.scss';
 
 const Main = () => (
@@ -10,7 +10,7 @@ const Main = () => (
         <LastLocationProvider>
             <div>
                 <Switch>
-                    <Route path="/" exact component={BoardsListContainer}/>
+                    <Route path="/" exact component={BoardsContainer}/>
                     <Route path="/task" component={Task}/>
                 </Switch>
             </div>

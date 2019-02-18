@@ -1,22 +1,14 @@
 const initialStore = {
-    boards: [
-        {
-            id: 1,
-            name: 'board1',
-        },
-        {
-            id: 2,
-            name: 'board2',
-        },
-    ],
     lists: [
         {
             id: 1,
             name: 'list1',
+            tasksId: [4, 2, 3],
         },
         {
             id: 2,
             name: 'list2',
+            tasksId: [1, 5],
         },
     ],
     tasks: [
@@ -27,6 +19,18 @@ const initialStore = {
         {
             id: 2,
             name: 'task2',
+        },
+        {
+            id: 3,
+            name: 'task3',
+        },
+        {
+            id: 4,
+            name: 'task4',
+        },
+        {
+            id: 5,
+            name: 'task5',
         },
     ]
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BoardsList from '../BoardsList/BoardsList'
+import BoardsListContainer from '../../containers/BoardsListContainer'
 import './boards-wrapper.scss';
 
 class Boards extends Component {
@@ -19,14 +19,14 @@ class Boards extends Component {
 
   render() {
 
-    const { boards } = this.props;
+    const { lists } = this.props;
     const { addListForm } = this.state;
     return (
       <div className="boards-wrapper">
 
         <div className="boards"> 
-          {boards.map(board =>
-            <BoardsList name={board.name} key={board.id} />
+          {lists.map(list =>
+            <BoardsListContainer name={list.name} listsIds={list.tasksId} key={list.id} />
           )}
         </div>
     

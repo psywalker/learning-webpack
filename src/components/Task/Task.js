@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-class Test extends Component {
-    handleClick() {
-        console.log('this is:', this.props.dispatch);
-    }
-  
-    render() {
-      return (
-        <button onClick={(e) => this.handleClick(e)}>
-          Page Test
-        </button>
-      );
-    }
-}
+const Task = ({ name, id }) => (
+  <div className="task">
+      <h2 className="task__title">{id}: {name}</h2>
+  </div>
+)
 
-
-Test = connect()(Test);
-
-export default Test;
+export default Task;

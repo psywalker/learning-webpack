@@ -1,9 +1,17 @@
 import { connect } from 'react-redux'
-import Boards from '../components/Boards/Boards'
+import BoardsList from '../components/BoardsList/BoardsList'
 
 const mapStateToProps = (state, ownProps) => 
 {
-  return { boards: state.boards }
+    
+    const listsIds = ownProps.listsIds;
+    const tasksArr = state.tasks;
+    const tasks = listsIds.map((id, i) => {
+        for(let i = 0; i < tasksArr.length; i++) {
+            if(id === tasksArr[i].id) return tasksArr[i]
+        }
+    })
+    return { tasks }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -13,4 +21,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Boards)
+)(BoardsList)
