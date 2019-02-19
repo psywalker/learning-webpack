@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import BoardsList from '../components/BoardsList/BoardsList'
+import { removeList } from '../actions'
 
 const mapStateToProps = (state, ownProps) => 
 {
     const list = state.lists.filter((list, i) => {
-        return ownProps.listsId == list.id;
+        return ownProps.listId == list.id;
     })
 
     const name = list[0].name;
@@ -22,7 +23,7 @@ const mapStateToProps = (state, ownProps) =>
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onClick: (id, name) => dispatch({ type: 'ADD_BOARD', id, name })
+    removeList: id => dispatch(removeList(id))
 })
 
 export default connect(

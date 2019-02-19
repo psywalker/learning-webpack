@@ -5,3 +5,8 @@ export const addList = text => ({
   id: nextTodoId++,
   text
 })
+
+export const removeList = id => ({
+    type: 'REMOVE_LIST',
+    id: id,
+  })

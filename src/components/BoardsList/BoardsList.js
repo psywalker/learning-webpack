@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Task from '../Task/Task'
+import TaskContainer from '../../containers/TaskContainer'
 import './board.scss';
 import '../Task/tasks.scss';
 
@@ -29,7 +29,7 @@ class BoardsList extends Component {
 
     render() {
 
-        const { name, tasks } = this.props;
+        const { name, tasks, removeList, listId } = this.props;
         const { addTaskFormToggle, boardMenuToggle, boardMenuOpenToggle } = this.state;
         return (
             <div className="board boards__item">
@@ -44,7 +44,10 @@ class BoardsList extends Component {
 
                     <ul className="board-menu">
                         <li className="board-menu__item">
-                            <button className="board-menu__link">Архивировать список</button>
+                            <button className="board-menu__link" onClick={(e) => {
+                                e.preventDefault;
+                                removeList(listId)}
+                                }>Архивировать список</button>
                         </li>
                     </ul>              
                 </div>)}
@@ -54,7 +57,7 @@ class BoardsList extends Component {
                 <div className="tasks tasks-wrapper">
                     <div className="tasks-wrapper__inner">
                         {tasks.map((task, i) =>
-                            <Task key={i} name={task.name} id={task.id} />
+                            <TaskContainer key={i} name={task.name} id={task.id} listId={listId} />
                         )}
                     </div>
                 </div>
@@ -63,11 +66,11 @@ class BoardsList extends Component {
                     { !addTaskFormToggle && (<button className="task-adding__btn" onClick={this.openFormRemoveList}>
                             <span className="task-adding__btn_plus">+</span> <span className="task-adding__btn_text">Добавьте ещё одну карточку</span>
                         </button>)}
-                    { addTaskFormToggle && (<form className="task-adding-form">
+                    { addTaskFormToggle && (<div className="task-adding-form">
                         <textarea className="task-adding-form__input" placeholder="Ввести заголовок для этой карточки"></textarea>
                         <button className="task-adding-form__btn_add">Добавьте карточку</button>
                         <button className="task-adding-form__btn_close" onClick={this.openFormRemoveList}>✖</button>
-                    </form>)}
+                    </div>)}
                 </div>
             </div>
         );

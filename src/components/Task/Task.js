@@ -18,7 +18,7 @@ class Task extends Component {
 
   render() {
 
-    const { id, name } = this.props;
+    const { id, name, listId } = this.props;
     const { taskEditBtnShow } = this.state;
     return (
       <div className="task">
