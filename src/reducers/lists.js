@@ -2,10 +2,10 @@ const lists = (state = [], action) => {
   switch (action.type) {
     case 'ADD_LIST':
       return [
-        ...state,
         {
-          id: action.id,
-          name: action.name,
+          id: 444,
+          name: '333',
+          tasksId: [],
         }
       ];
     case 'REMOVE_LIST':

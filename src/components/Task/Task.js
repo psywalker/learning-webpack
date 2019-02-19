@@ -23,7 +23,7 @@ class Task extends Component {
     return (
       <div className="task">
         <button className={'task__edit-btn ' + (taskEditBtnShow ? 'task__edit-btn_show' : '')} onClick={this.handleBtnMenuToogle}>
-          <span><i class="fas fa-pen"></i></span>
+          <span><i className="fas fa-pen"></i></span>
         </button>
         <h2 className="task__title">{id}: {name}</h2>
       </div>

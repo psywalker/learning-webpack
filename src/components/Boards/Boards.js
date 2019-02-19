@@ -9,6 +9,7 @@ class Boards extends Component {
     this.state = {
       addListForm: false,
     }
+    
   } 
 
   openFormAddList = () => {
@@ -19,22 +20,23 @@ class Boards extends Component {
 
   render() {
 
-    const { lists } = this.props;
+    const { lists, addList } = this.props;
     const { addListForm } = this.state;
+    let inputTitle;
     return (
       <div className="boards-wrapper">
 
         <div className="boards"> 
           {lists.map(list =>
-            <BoardsListContainer name={list.name} listsIds={list.tasksId} key={list.id} id={list.id} />
+            <BoardsListContainer listsId={list.id} key={list.id} />
           )}
         </div>
     
         <div className="board-adding">
           { !addListForm && (<button className="board-adding__btn" onClick={this.openFormAddList}>+ Добавьте ещё одну колонку</button>)}
           { addListForm && (<form className="board-adding-form">
-            <input className="board-adding-form__input" placeholder="Ввести заголовок списка" />
-            <button className="board-adding-form__btn_add">Добавьте список</button>
+            <input ref={node => inputTitle = node} className="board-adding-form__input" placeholder="Ввести заголовок списка" />
+            <button className="board-adding-form__btn_add" onClick={() => addList(inputTitle.value)}>Добавьте список</button>
             <button className="board-adding-form__btn_close" onClick={this.openFormAddList}>✖</button>
           </form>)}
         </div>

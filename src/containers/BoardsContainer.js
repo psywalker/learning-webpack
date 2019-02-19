@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import Boards from '../components/Boards/Boards'
+import { addList } from '../actions'
 
 const mapStateToProps = (state, ownProps) => 
 {
@@ -7,7 +8,7 @@ const mapStateToProps = (state, ownProps) =>
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onClick: (id, name) => dispatch({ type: 'ADD_BOARD', id, name })
+  addList: text => dispatch(addList(text))
 })
 
 export default connect(

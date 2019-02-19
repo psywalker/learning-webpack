@@ -3,15 +3,22 @@ import BoardsList from '../components/BoardsList/BoardsList'
 
 const mapStateToProps = (state, ownProps) => 
 {
-    
-    const listsIds = ownProps.listsIds;
+    const list = state.lists.filter((list, i) => {
+        return ownProps.listsId == list.id;
+    })
+
+    const name = list[0].name;
+    const listsIds = list[0].tasksId;
+    const listId = list[0].id;
     const tasksArr = state.tasks;
     const tasks = listsIds.map((id, i) => {
         for(let i = 0; i < tasksArr.length; i++) {
             if(id === tasksArr[i].id) return tasksArr[i]
         }
     })
-    return { tasks }
+
+    return { tasks, name, listId }
+    
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
