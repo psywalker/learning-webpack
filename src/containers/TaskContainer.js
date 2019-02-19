@@ -4,8 +4,8 @@ import { removeList } from '../actions'
 
 const mapStateToProps = (state, ownProps) => 
 {
-    console.log('1::', state)
-    return { id: ownProps.id, name: ownProps.name, listId: ownProps.listId }
+    //console.log('1::', state)
+    return { id: ownProps.id, text: ownProps.text, listId: ownProps.listId }
     
 }
 

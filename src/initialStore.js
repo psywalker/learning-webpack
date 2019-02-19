@@ -14,23 +14,23 @@ const initialStore = {
     tasks: [
         {
             id: 1,
-            name: 'task1',
+            text: 'task1',
         },
         {
             id: 2,
-            name: 'task2',
+            text: 'task2',
         },
         {
             id: 3,
-            name: 'task3',
+            text: 'task3',
         },
         {
             id: 4,
-            name: 'task4',
+            text: 'task4',
         },
         {
             id: 5,
-            name: 'task5',
+            text: 'task5',
         },
     ]
 }

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import BoardsList from '../components/BoardsList/BoardsList'
 import { removeList } from '../actions'
+import { addTask } from '../actions'
 
 const mapStateToProps = (state, ownProps) => 
 {
@@ -23,7 +24,8 @@ const mapStateToProps = (state, ownProps) =>
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    removeList: id => dispatch(removeList(id))
+    removeList: id => dispatch(removeList(id)),
+    addTask: (id, text) => dispatch(addTask(id, text))
 })
 
 export default connect(

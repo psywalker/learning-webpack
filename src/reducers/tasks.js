@@ -1,11 +1,12 @@
 const tasks = (state = [], action) => {
     switch (action.type) {
       case 'ADD_TASK':
+        let taskId = state.length + 1;
         return [
           ...state,
           {
-            id: action.id,
-            name: action.name,
+            id: taskId,
+            text: action.text,
           }
         ];
       case 'REMOVE_TASK':
