@@ -11,18 +11,24 @@ class Boards extends Component {
     }
     
   } 
+  componentDidUpdate() {
+    if (!this.inputTitle) return;
+    this.inputTitle.focus()
+  }
 
-  openFormAddList = () => {
+  openFormAddList = (e) => {
+    e.preventDefault;
     this.setState({
       addListForm: !this.state.addListForm,
     }); 
+
   }
 
   render() {
 
     const { lists, addList } = this.props;
     const { addListForm } = this.state;
-    let inputTitle;
+
     return (
       <div className="boards-wrapper">
 
@@ -34,14 +40,15 @@ class Boards extends Component {
     
         <div className="board-adding">
           { !addListForm && (<button className="board-adding__btn" onClick={this.openFormAddList}>+ Добавьте ещё одну колонку</button>)}
-          { addListForm && (<div className="board-adding-form">
-            <input ref={node => inputTitle = node} className="board-adding-form__input" placeholder="Ввести заголовок списка" />
+          { addListForm && (<form className="board-adding-form">
+            <input ref={el => this.inputTitle = el} className="board-adding-form__input" placeholder="Ввести заголовок списка" />
             <button className="board-adding-form__btn_add" onClick={(e) => {
               e.preventDefault;
-              addList(inputTitle.value)}
-              }>Добавьте список</button>
+              addList(this.inputTitle.value);
+              this.openFormAddList(e)
+              }}>Добавьте список</button>
             <button className="board-adding-form__btn_close" onClick={this.openFormAddList}>✖</button>
-          </div>)}
+          </form>)}
         </div>
   
       </div>

@@ -7,12 +7,18 @@ export const addList = text => ({
 })
 
 export const removeList = id => ({
-    type: 'REMOVE_LIST',
-    id: id,
-  })
+  type: 'REMOVE_LIST',
+  id: id,
+})
 
-  export const addTask = (id, text) => ({
-    type: 'ADD_TASK',
-    listId: id,
-    text
-  })
+export const addTask = (id, text) => ({
+  type: 'ADD_TASK',
+  listId: id,
+  text
+})
+
+export const removeTask = (taskId, listId) => ({
+  type: 'REMOVE_TASK',
+  taskId,
+  listId
+})

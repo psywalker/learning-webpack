@@ -1,17 +1,16 @@
 const tasks = (state = [], action) => {
     switch (action.type) {
       case 'ADD_TASK':
-        let taskId = state.length + 1;
         return [
           ...state,
           {
-            id: taskId,
+            id: state.length + 1,
             text: action.text,
           }
         ];
       case 'REMOVE_TASK':
         return state.filter(
-            task => task.id === action.id ? { ...task } : task
+            task => task.id !== action.taskId 
         );
       default:
         return state;

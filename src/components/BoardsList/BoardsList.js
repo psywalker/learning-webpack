@@ -13,7 +13,10 @@ class BoardsList extends Component {
             addTaskFormShow: false,
         }
     } 
-
+    componentDidUpdate() {
+        if (!this.addTaskTextArea) return;
+        this.addTaskTextArea.focus()
+    }
     boardMenuHide = () => {
         this.setState({ boardMenuShow: false });
     };
@@ -23,7 +26,8 @@ class BoardsList extends Component {
         this.setState({ boardMenuShow: !boardMenuShow });
     };
 
-    addTaskFormHide = () => {
+    addTaskFormHide = (e) => {
+        e.preventDefault;
         this.setState({ addTaskFormShow: false });
     };
     
@@ -32,13 +36,22 @@ class BoardsList extends Component {
         this.setState({ addTaskFormShow: !addTaskFormShow });
     };
 
+    handleKeyPressAddTask = (e) => {
+        e.preventDefault;
+        const { listId, addTask } = this.props;
+        if(e.key == 'Enter'){
+            addTask(listId, this.addTaskTextArea.value);
+            this.setState({ addTaskFormShow: false });
+        }
+    };
+
     render() {
 
         const { name, tasks, removeList, listId, addTask } = this.props;
         const { boardMenuShow, addTaskFormShow } = this.state;
-        let textAreaTitle;
+      
         return (
-            <div className="board boards__item">
+            <div className="board boards__item" >
                 <ClickOutside className="clickOutSide" onClickOutside={this.boardMenuHide}>
                     <button className={'board__menu-toggle ' + (boardMenuShow ? 'board__menu-toggle_open' : '')} onClick={this.boardMenuToggle}>
                         <span>...</span>
@@ -50,7 +63,7 @@ class BoardsList extends Component {
 
                         <ul className="board-menu">
                             <li className="board-menu__item">
-                                <button className="board-menu__link" onClick={(e) => {
+                                <button type="button" className="board-menu__link" onClick={(e) => {
                                     e.preventDefault;
                                     removeList(listId)}
                                     }>Архивировать список</button>
@@ -73,14 +86,15 @@ class BoardsList extends Component {
                     { !addTaskFormShow && (<button className="task-adding__btn" onClick={this.addTaskFormToggle}>
                             <span className="task-adding__btn_plus">+</span> <span className="task-adding__btn_text">Добавьте ещё одну карточку</span>
                         </button>)}
-                    { addTaskFormShow && (<div className="task-adding-form">
-                        <textarea ref={node => textAreaTitle = node} className="task-adding-form__input" placeholder="Ввести заголовок для этой карточки"></textarea>
-                        <button className="task-adding-form__btn_add"onClick={(e) => {
-                                e.preventDefault;
-                                addTask(listId, textAreaTitle.value)}
-                                }>Добавьте карточку</button>
+                    { addTaskFormShow && (<form action="#" className="task-adding-form">
+                        <textarea onKeyPress={this.handleKeyPressAddTask} ref={el => this.addTaskTextArea = el} className="task-adding-form__input" placeholder="Ввести заголовок для этой карточки"></textarea>
+                        <button className="task-adding-form__btn_add" onClick={(e) => {
+                                this.addTaskFormHide(e);
+                                addTask(listId, this.addTaskTextArea.value);
+                                
+                            }} >Добавьте карточку</button>
                         <button className="task-adding-form__btn_close" onClick={this.addTaskFormToggle}>✖</button>
-                    </div>)}
+                    </form>)}
                     </ClickOutside>
                 </div>
             </div>

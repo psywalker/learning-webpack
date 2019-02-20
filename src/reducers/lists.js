@@ -10,20 +10,24 @@ const lists = (state = [], action) => {
         }
       ];
     case 'REMOVE_LIST':
-      return state.filter(
-        list => list.id != action.id 
-      );
+      return state.filter(list => list.id != action.id);
     case 'ADD_TASK':
+
       let taskId = 1;
-      for(let i = 0; i < state.length; i++) taskId += state[i].tasksId.length;
-      
-      for(let i = 0; i < state.length; i++) {
-        if(state[i].id == action.listId) {
-          state[i].tasksId.push(taskId);
-        }
-      }
+
+      for(let i = 0; i < state.length; i++) taskId += state[i].tasksId.length; 
+
+      return state.map(list =>
+        (list.id === action.listId) 
+        ? {...list, tasksId: [...list.tasksId, taskId]} 
+        : list                                                                                                             
+      )
     case 'REMOVE_TASK':
-      
+      return state.map(list =>
+        (list.id === action.listId) 
+        ? {...list, tasksId: list.tasksId.filter(task => task !== action.taskId)} 
+        : list                                                                                                             
+      )
     default:
       return state;
   }
