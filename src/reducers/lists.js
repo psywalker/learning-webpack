@@ -1,3 +1,4 @@
+let counterTaskId = 6;
 const lists = (state = [], action) => {
   switch (action.type) {
     case 'ADD_LIST':
@@ -10,16 +11,12 @@ const lists = (state = [], action) => {
         }
       ];
     case 'REMOVE_LIST':
-      return state.filter(list => list.id != action.id);
+      return state.filter(list => list.id !== action.id);
     case 'ADD_TASK':
-
-      let taskId = 1;
-
-      for(let i = 0; i < state.length; i++) taskId += state[i].tasksId.length; 
 
       return state.map(list =>
         (list.id === action.listId) 
-        ? {...list, tasksId: [...list.tasksId, taskId]} 
+        ? {...list, tasksId: [...list.tasksId, counterTaskId++]} 
         : list                                                                                                             
       )
     case 'REMOVE_TASK':

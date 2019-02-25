@@ -17,7 +17,7 @@ class Boards extends Component {
   }
 
   openFormAddList = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     this.setState({
       addListForm: !this.state.addListForm,
     }); 
@@ -43,7 +43,7 @@ class Boards extends Component {
           { addListForm && (<form className="board-adding-form">
             <input ref={el => this.inputTitle = el} className="board-adding-form__input" placeholder="Ввести заголовок списка" />
             <button className="board-adding-form__btn_add" onClick={(e) => {
-              e.preventDefault;
+              e.preventDefault();
               addList(this.inputTitle.value);
               this.openFormAddList(e)
               }}>Добавьте список</button>

@@ -27,11 +27,11 @@ class Task extends Component {
   };
   
   handleEditTask = (e) => {
-    e.preventDefault;
+    e.preventDefault();
   };
 
   handleRemoveTask = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     const { id, listId, removeTask } = this.props;
 
     removeTask(id, listId)

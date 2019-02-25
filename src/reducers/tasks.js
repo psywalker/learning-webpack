@@ -1,10 +1,11 @@
+let counterTaskId = 6;
 const tasks = (state = [], action) => {
     switch (action.type) {
       case 'ADD_TASK':
         return [
           ...state,
           {
-            id: state.length + 1,
+            id: counterTaskId++,
             text: action.text,
           }
         ];

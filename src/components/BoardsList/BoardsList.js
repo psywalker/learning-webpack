@@ -27,7 +27,7 @@ class BoardsList extends Component {
     };
 
     addTaskFormHide = (e) => {
-        e.preventDefault;
+        e.preventDefault();
         this.setState({ addTaskFormShow: false });
     };
     
@@ -37,9 +37,9 @@ class BoardsList extends Component {
     };
 
     handleKeyPressAddTask = (e) => {
-        e.preventDefault;
         const { listId, addTask } = this.props;
         if(e.key == 'Enter'){
+            e.preventDefault();
             addTask(listId, this.addTaskTextArea.value);
             this.setState({ addTaskFormShow: false });
         }
